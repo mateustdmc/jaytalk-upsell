@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JayTalk PV - Up1</title>
+    <meta name="facebook-domain-verification" content="seu-codigo-aqui">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2330001817364150');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2330001817364150&ev=PageView&noscript=1"
+    /></noscript>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #000;
+            line-height: 1.6;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+        }
+        
+        /* Logo */
+        .logo-header {
+            text-align: center;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo-header img {
+            max-width: 110px;
+            height: auto;
+        }
+        
+        /* Warning Box */
+        .warning-box {
+            background: #FEF3C7;
+            color: #92400E;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+            border-radius: 16px;
+            font-weight: 700;
+        }
+        
+        /* Countdown */
+        .countdown-box {
+            background: #FEE2E2;
+            color: #991B1B;
+            padding: 16px 20px;
+            text-align: center;
+            border-radius: 16px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        
+        /* Spacing */
+        .spacer {
+            height: 16px;
+        }
+        
+        .spacer-lg {
+            height: 32px;
+        }
+        
+        /* Content */
+        h1 {
+            font-size: 40px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #000;
+            line-height: 1.15;
+        }
+        
+        h2 {
+            font-size: 28px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #000;
+            line-height: 1.15;
+        }
+        
+        p {
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .green-text {
+            color: #16A34A;
+        }
+        
+        .red-text {
+            color: #DC2626;
+        }
+        
+        strong {
+            font-weight: 700;
+        }
+        
+        /* Price Section */
+        .price-section {
+            text-align: center;
+            margin: 32px 0;
+        }
+        
+        .price-label {
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .old-price {
+            font-size: 36px;
+            color: #DC2626;
+            text-decoration: line-through;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+        
+        .new-price {
+            font-size: 64px;
+            color: #16A34A;
+            font-weight: 900;
+            margin: 8px 0;
+        }
+        
+        /* Discount Badge */
+        .discount-badge {
+            display: inline-block;
+            background: #FEE2E2;
+            color: #991B1B;
+            padding: 12px 24px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 16px auto;
+        }
+        
+        /* Progress Bars */
+        .progress-container {
+            margin: 24px 0;
+            padding: 16px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .progress-title {
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .progress-value {
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .progress-bar-bg {
+            background: #E5E7EB;
+            height: 8px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 8px;
+            transition: width 1s ease;
+        }
+        
+        .progress-bar-yellow {
+            background: #FBBF24;
+        }
+        
+        .progress-bar-green {
+            background: #22C55E;
+        }
+        
+        .progress-label {
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        
+        /* Images */
+        .content-image {
+            width: 100%;
+            border-radius: 16px;
+            margin: 24px 0;
+        }
+        
+        /* Kiwify Buttons Styling */
+        #kiwify-upsell-CNAPKq6 {
+            position: static !important;
+            transform: none !important;
+            margin: 32px auto !important;
+            display: block !important;
+            text-align: center !important;
+        }
+        
+        #kiwify-upsell-trigger-CNAPKq6 {
+            background: #EF4444 !important;
+            color: white !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            padding: 18px 32px !important;
+            border: none !important;
+            border-radius: 8px !important;
+            cursor: pointer !important;
+            width: 100% !important;
+            max-width: 500px !important;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3) !important;
+            font-family: 'Inter', sans-serif !important;
+            transition: all 0.2s ease !important;
+            text-transform: none !important;
+        }
+        
+        #kiwify-upsell-trigger-CNAPKq6:hover {
+            background: #DC2626 !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        #kiwify-upsell-cancel-trigger-CNAPKq6 {
+            background: none !important;
+            border: none !important;
+            color: #666 !important;
+            font-size: 14px !important;
+            text-decoration: underline !important;
+            cursor: pointer !important;
+            display: block !important;
+            margin: 20px auto !important;
+            padding: 10px !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+        
+        #kiwify-upsell-cancel-trigger-CNAPKq6:hover {
+            color: #000 !important;
+        }
+        
+        /* Hide if script moves it */
+        body > #kiwify-upsell-CNAPKq6:last-child {
+            display: none !important;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 32px 20px;
+            color: #666;
+            font-size: 12px;
+            margin-top: 40px;
+        }
+        
+        .footer a {
+            color: #3B82F6;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            .new-price {
+                font-size: 48px;
+            }
+            
+            .old-price {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo-header">
+            <img src="https://media.inlead.cloud/uploads/15553/2024-12-04/md-oz06f-jaytalk-logo.png" alt="JayTalk Logo">
+        </div>
+        
+        <!-- Warning Box -->
+        <div class="warning-box">
+            ⚠️ ATENÇÃO: NÃO FECHE ESTA PÁGINA<br>
+            <strong>Sua Compra Ainda Não Foi Concluída!</strong>
+        </div>
+        
+        <!-- Countdown -->
+        <div class="countdown-box">
+            TEMPO RESTANTE: <span id="countdown">10:40</span>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        <!-- Main Content -->
+        <h1>Parabéns!</h1>
+        
+        <p>Você acabou de tomar a melhor decisão para sua fluência no inglês...</p>
+        
+        <p>E, como forma de <strong>AGRADECIMENTO</strong> por ter confiado em nós...</p>
+        
+        <p>Vamos te dar a chance de <strong>TRIPLICAR</strong> esse investimento:</p>
+        
+        <div class="spacer-lg"></div>
+        
+        <!-- Offer -->
+        <h2>Adicione <span class="green-text">+3 MESES EXTRAS</span> ao seu plano pelo preço de 1 mês</h2>
+        
+        <div class="price-section">
+            <div class="price-label">de</div>
+            <div class="old-price">R$104,70</div>
+            <div class="price-label">por</div>
+            <div class="new-price">R$34,90</div>
+        </div>
+        
+        <div style="text-align: center;">
+            <div class="discount-badge">🔥 67% OFF</div>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        <!-- KIWIFY BUTTONS - POSITIONED HERE -->
+        <div style="text-align:center" id="kiwify-upsell-CNAPKq6" data-upsell-url="" data-downsell-url="">
+            <button id="kiwify-upsell-trigger-CNAPKq6">
+                SIM! QUERO 3 MESES PELO PREÇO DE 1!
+            </button>
+            <div id="kiwify-upsell-cancel-trigger-CNAPKq6">
+                Não, obrigado
+            </div>
+        </div>
+        
+        <div class="spacer-lg"></div>
+        <div class="spacer-lg"></div>
+        
+        <!-- Why Section -->
+        <h1>Por que fazemos isso?</h1>
+        <p>Analisamos o desempenho de mais de 10.000 dos nossos alunos:</p>
+        
+        <div class="spacer"></div>
+        
+        <!-- Progress Bar 1 -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-title">Alunos de 1 a 3 meses</span>
+                <span class="progress-value">12%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill progress-bar-yellow" style="width: 12%;"></div>
+            </div>
+            <div class="progress-label">Só 12% ficam fluentes</div>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        <!-- Progress Bar 2 -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-title">Alunos de 6+ meses</span>
+                <span class="progress-value">67%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill progress-bar-green" style="width: 67%;"></div>
+            </div>
+            <div class="progress-label">67% ficam fluentes</div>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        <h2>A diferença? TEMPO.</h2>
+        <p>Com +3 meses você multiplica as suas chances de sucesso por 5x.</p>
+        
+        <div class="spacer"></div>
+        
+        <!-- Warning Section -->
+        <h2>⚠️ ANTES DE DECIDIR... VEJA O QUE ESSAS PESSOAS DISSERAM!</h2>
+        
+        <p>Eu poderia encher esta página com dezenas de depoimentos de quem aceitou a oferta e ficou muito satisfeito.</p>
+        
+        <p><strong>Mas disso você já sabe.</strong></p>
+        
+        <p>O que você PRECISA ver são as mensagens de quem NÃO aproveitou... E se arrependeu AMARGAMENTE depois.</p>
+        
+        <div class="spacer"></div>
+        
+        <!-- Testimonial Images -->
+        <img src="https://media.inlead.cloud/uploads/15553/2025-11-25/lg-JLrd2-screenshot-2025-11-25t210627735.png" alt="Depoimento 1" class="content-image">
+        
+        <img src="https://media.inlead.cloud/uploads/15553/2025-11-25/lg-Lf0Gj-screenshot-2025-11-25t210801320.png" alt="Depoimento 2" class="content-image">
+        
+        <img src="https://media.inlead.cloud/uploads/15553/2025-11-25/lg-VbXwX-screenshot-2025-11-25t210936349.png" alt="Depoimento 3" class="content-image">
+        
+        <img src="https://media.inlead.cloud/uploads/15553/2025-11-25/lg-YudVf-screenshot-2025-11-25t211014297.png" alt="Depoimento 4" class="content-image">
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 - Criado via <a href="https://inlead.digital/" target="_blank">inlead.digital</a></p>
+            <p style="margin-top: 8px;"><a href="#">Central de anúncios</a></p>
+        </div>
+    </div>
+    
+    <!-- Kiwify Script -->
+    <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+    
+    <!-- Countdown Timer Script -->
+    <script>
+        let timeLeft = 10 * 60 + 40; // 10 minutos e 40 segundos
+        
+        function updateCountdown() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            
+            document.getElementById('countdown').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft > 0) {
+                timeLeft--;
+            } else {
+                document.getElementById('countdown').textContent = '00:00';
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
